@@ -6,26 +6,29 @@ on:
   pull_request:
 
 jobs:
-  fmt-check:
+  pre-flight:
     runs-on: ubuntu-latest
-    name: Check formatting of terraform files
+    name: Pre-Flight Check
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup Terraform
+      - uses: hashicorp/setup-terraform@v2
 
-      - name: terraform fmt
-        uses: dflook/terraform-fmt-check@v1
-        with:
-          path: .
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
 
-  validate:
-    runs-on: ubuntu-latest
-    name: Validate terraform configuration
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Terraform Init
+        id: init
+        run: terraform init
 
-      - name: terraform validate
-        uses: dflook/terraform-validate@v1
-        with:
-          path: .
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+        continue-on-error: true
