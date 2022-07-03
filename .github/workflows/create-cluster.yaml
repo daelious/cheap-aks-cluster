@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Terraform
-      - uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v2
 
       - name: Terraform fmt
         id: fmt
