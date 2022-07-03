@@ -16,7 +16,7 @@ jobs:
       - name: terraform fmt
         uses: dflook/terraform-fmt-check@v1
         with:
-          path: terraform
+          path: .
 
   validate:
     runs-on: ubuntu-latest
@@ -28,4 +28,4 @@ jobs:
       - name: terraform validate
         uses: dflook/terraform-validate@v1
         with:
-          path: terraform
+          path: .
