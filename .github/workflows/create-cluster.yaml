@@ -1,0 +1,12 @@
+name: 'Create the Cluster'
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    steps:
