@@ -99,4 +99,4 @@ jobs:
 
       - name: Apply Terraform
         if: github.ref == 'refs/heads/main'
-        run: echo "Deploy"
+        run: terraform plan
