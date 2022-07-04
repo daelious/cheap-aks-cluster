@@ -15,8 +15,15 @@ resource "azurerm_kubernetes_cluster" "default" {
     vm_size         = "Standard_B2s"
     os_disk_size_gb = 30
   }
-
-  role_based_access_control_enabled = true
+  
+  service_principal {
+    client_id     = var.azure_spn_id
+    client_secret = var.azure_spn_secret
+  }
+  
+  role_based_access_control {
+    enabled = true
+  }
 
   tags = {
     environment = "Sandbox"
