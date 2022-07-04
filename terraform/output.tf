@@ -6,6 +6,6 @@ output "location" {
     value = azurerm_resource_group.rg.location
 }
 
-output "cr.name" {
+output "name" {
     value = azurerm_container_registry.cr.name
 }
