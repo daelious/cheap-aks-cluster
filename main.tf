@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_kubernetes_cluster" "default" {
   name                = "daelious-aks"
-  location            = azurerm_resource_group.location
-  resource_group_name = azurerm_resource_group.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   dns_prefix          = "daelious-k8s"
 
   default_node_pool {
