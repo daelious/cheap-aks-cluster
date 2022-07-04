@@ -14,13 +14,14 @@ resource "azurerm_kubernetes_cluster" "default" {
     node_count      = 1
     vm_size         = "Standard_B2s"
     os_disk_size_gb = 30
+    load_balancer_sku = basic
   }
   
   service_principal {
     client_id     = var.azure_spn_id
     client_secret = var.azure_spn_secret
   }
-  load_balancer_sku = basic
+
   role_based_access_control_enabled = true
 
   tags = {
