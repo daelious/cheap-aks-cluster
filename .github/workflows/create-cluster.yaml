@@ -96,3 +96,7 @@ jobs:
                 body: output
               })
             }
+
+      - name: Apply Terraform
+        if: github.ref == 'refs/heads/main'
+        run: echo "Deploy"
