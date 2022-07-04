@@ -14,7 +14,10 @@ resource "azurerm_kubernetes_cluster" "default" {
     node_count      = 1
     vm_size         = "Standard_B2s"
     os_disk_size_gb = 30
-    load_balancer_sku = basic
+  }
+
+  network_profile {
+    load_balancer_sku = "basic"
   }
   
   service_principal {
