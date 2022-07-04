@@ -20,7 +20,7 @@ resource "azurerm_kubernetes_cluster" "default" {
     client_id     = var.azure_spn_id
     client_secret = var.azure_spn_secret
   }
-  
+  load_balancer_sku = basic
   role_based_access_control_enabled = true
 
   tags = {
