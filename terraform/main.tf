@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
 }
 
-resource "azurerm_container_registry" "cr" {
+resource "azurerm_container_registry" "default" {
   name                = "daelious-com-registry"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location

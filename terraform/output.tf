@@ -1,11 +1,11 @@
-output "name" {
+output "azurerm_resource_group_name" {
     value = azurerm_resource_group.rg.name
 }
 
-output "location" {
+output "azurerm_resource_group_location" {
     value = azurerm_resource_group.rg.location
 }
 
-output "name" {
-    value = azurerm_container_registry.cr.name
+output "container_registry_name" {
+    value = azurerm_container_registry.default.name
 }
