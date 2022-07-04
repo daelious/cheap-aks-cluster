@@ -12,19 +12,13 @@ jobs:
     env:
       TF_VAR_azure_spn_id: ${{ secrets.ARM_CLIENT_ID }}
       TF_VAR_azure_spn_secret: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      TF_VAR_azure_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      TF_VAR_azure_tenant_id: ${{ secrets.ARM_TENANT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
-
-      - name: Log into Azure
-        uses: azure/login@v1
-        with:
-          creds: '{"clientId":"${{ secrets.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ secrets.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.ARM_TENANT_ID }}"}'
-
 
       - name: Terraform fmt
         id: fmt

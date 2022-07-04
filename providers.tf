@@ -11,4 +11,8 @@ terraform {
 
 provider "azurerm" {
   features {}
+  subscription_id = var.azure_subscription_id
+  client_id       = var.azure_spn_id
+  client_secret   = var.azure_spn_secret
+  tenant_id       = var.azure_tenant_id
 }
