@@ -9,6 +9,8 @@ $ export ARM_SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
 $ export ARM_TENANT_ID="<TENANT_VALUE>"
 ```
 
+# Ref Commands
+`az aks get-credentials --admin --name MyManagedCluster --resource-group MyResourceGroup`
 
 ## Reference Links
 * https://trstringer.com/cheap-kubernetes-in-azure/
