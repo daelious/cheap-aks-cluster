@@ -10,7 +10,7 @@ $ export ARM_TENANT_ID="<TENANT_VALUE>"
 ```
 
 # Ref Commands
-`az aks get-credentials --admin --name MyManagedCluster --resource-group MyResourceGroup`
+`az aks get-credentials --admin --name daelious-aks --resource-group daelious-k8s-rg`
 
 ## Reference Links
 * https://trstringer.com/cheap-kubernetes-in-azure/
